@@ -13,14 +13,14 @@ public class TaskController {
             new Task(1, "task1", "A first test task", false),
             new Task(2, "task2", "A second test task", true)
     );
-    
+
     @GetMapping("/tasks")
     public List<Task> getTasks() {
         return taskList;
-    }   
-    
+    }
+
     @GetMapping("/tasks/{id}")
     public ResponseEntity<Task> getTask(@PathVariable int id) {
-        return new ResponseEntity<>(taskList.get(id -1), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(taskList.get(id - 1), HttpStatus.ACCEPTED);
     }
 }
