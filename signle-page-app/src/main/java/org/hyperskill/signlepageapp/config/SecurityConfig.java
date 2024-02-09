@@ -14,27 +14,27 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig {
-    
+
     @Bean
     public UserDetailsService userDetailsService() {
         var user1 = User.withUsername("user1")
                 .password(passwordEncoder().encode("pass1"))
                 .authorities("WRITE")
                 .build();
-        
+
         var user2 = User.withUsername("user2")
                 .password(passwordEncoder().encode("pass2"))
                 .authorities("USER")
                 .build();
-        
+
         var user3 = User.withUsername("user3")
                 .password(passwordEncoder().encode("pass3"))
-                .authorities("ROLE_ADMIN","WRITE")
+                .authorities("ROLE_ADMIN", "WRITE")
                 .build();
-        
+
         return new InMemoryUserDetailsManager(user1, user2, user3);
     }
-    
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
