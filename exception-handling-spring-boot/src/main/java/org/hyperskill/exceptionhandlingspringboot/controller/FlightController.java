@@ -16,16 +16,20 @@ import java.util.Objects;
 public class FlightController {
     
     private final List<FlightInfo> flightInfoList = new ArrayList<>();
-    
+
     public FlightController() {
         flightInfoList.add(
-                new FlightInfo(1, "Delhi Indira Gandhi", "Stuttgart", "D80"));
+                new FlightInfo(
+                        1,
+                        "Delhi Indira Gandhi",
+                        "Stuttgart",
+                        "D80"));
         flightInfoList.add(
-                new FlightInfo(2, "Tokyo Haneda", "Frankfurt", "110"));
-        flightInfoList.add(
-                new FlightInfo(3, "Berlin Schönefeld", "Tenerife", "15"));
-        flightInfoList.add(
-                new FlightInfo(4, "Kilimanjaro Arusha", "Boston", "15"));
+                new FlightInfo(
+                        2,
+                        "Tokyo Haneda",
+                        "Frankfurt",
+                        "110"));
     }
 
     @GetMapping("flights/{id}")

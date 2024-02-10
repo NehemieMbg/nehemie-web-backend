@@ -1,6 +1,7 @@
 package org.hyperskill.exceptionhandlingspringboot.model;
 
 public class FlightInfo {
+    
     private int id;
     private String from;
     private String to;
