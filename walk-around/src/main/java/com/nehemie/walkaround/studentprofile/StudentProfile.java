@@ -1,5 +1,6 @@
-package com.nehemie.walkaround;
+package com.nehemie.walkaround.studentprofile;
 
+import com.nehemie.walkaround.student.Student;
 import jakarta.persistence.*;
 
 @Entity

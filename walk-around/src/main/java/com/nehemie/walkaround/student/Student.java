@@ -1,5 +1,8 @@
-package com.nehemie.walkaround;
+package com.nehemie.walkaround.student;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.nehemie.walkaround.school.School;
+import com.nehemie.walkaround.studentprofile.StudentProfile;
 import jakarta.persistence.*;
 
 @Entity
@@ -21,6 +24,16 @@ public class Student {
             cascade = CascadeType.ALL
     )
     private StudentProfile studentProfile;
+    
+    @ManyToOne
+    @JoinColumn(
+            name = "school_id"
+    )
+    // to avoid infinite loop (works with JsonManagedReference)
+    // JsonBackReference for the child class in relation with the parent one
+    // Means that this class doesn't have to serialize the parent class
+    @JsonBackReference
+    private School school;
 
     public Student() {
     }
@@ -70,5 +83,21 @@ public class Student {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public StudentProfile getStudentProfile() {
+        return studentProfile;
+    }
+
+    public void setStudentProfile(StudentProfile studentProfile) {
+        this.studentProfile = studentProfile;
+    }
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
     }
 }
